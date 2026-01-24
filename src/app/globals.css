@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta Pollería - Fondo blanco, colores cálidos */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  
+  /* Colores principales */
+  --brasa-red: #e11d48;
+  --brasa-red-dark: #be123c;
+  --warm-orange: #f97316;
+  --warm-orange-light: #fb923c;
+  --golden-yellow: #eab308;
+  --golden-yellow-light: #facc15;
+  --elegant-black: #0f0f0f;
+  --cream: #fef3c7;
+  --cream-light: #fffbeb;
+  
+  /* Grises suaves */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-600: #525252;
+  --gray-800: #262626;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brasa: var(--brasa-red);
+  --color-brasa-dark: var(--brasa-red-dark);
+  --color-orange: var(--warm-orange);
+  --color-orange-light: var(--warm-orange-light);
+  --color-golden: var(--golden-yellow);
+  --color-golden-light: var(--golden-yellow-light);
+  --color-black: var(--elegant-black);
+  --color-cream: var(--cream);
+  --color-cream-light: var(--cream-light);
+  --font-sans: var(--font-outfit);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brasa-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brasa-red-dark);
+}
+
+/* Animaciones globales */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0.2); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
