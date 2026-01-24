@@ -1,4 +1,4 @@
-# 🍗 La Brasería del Sabor - Landing Page
+# 🍗 Gattuso Chicken 2 - Landing Page
 
 Landing page moderna para pollería peruana, desarrollada con Next.js 15, Tailwind CSS y Framer Motion.
 
