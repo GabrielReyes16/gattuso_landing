@@ -24,7 +24,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     const hasImage = product.image_url && product.image_url.trim() !== '';
 
     // WhatsApp message with product name
-    const whatsappMessage = `¡Hola! Me interesa el ${product.name} (S/${Number(product.price).toFixed(2)})`;
+    const whatsappMessage = `¡Hola! Me interesa esto: ${product.name} (S/${Number(product.price).toFixed(2)})`;
     const whatsappUrl = `https://wa.me/${businessInfo.phone}?text=${encodeURIComponent(whatsappMessage)}`;
 
     return (

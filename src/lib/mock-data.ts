@@ -137,9 +137,5 @@ export const businessInfo = {
     phone: '+51901925250',
     address: 'Pasaje Ignacio Cossio 231, La Victoria, Lima',
     whatsappMessage: '¡Hola! Quiero hacer un pedido.',
-    socialMedia: {
-        facebook: 'https://facebook.com/labraseria',
-        instagram: 'https://instagram.com/labraseria',
-        tiktok: 'https://tiktok.com/@labraseria',
-    },
+
 };

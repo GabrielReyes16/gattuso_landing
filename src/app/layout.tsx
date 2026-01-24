@@ -15,12 +15,17 @@ export const metadata: Metadata = {
   keywords: [
     "pollo a la brasa",
     "pollería",
-    "Lima",
-    "Perú",
+    "la victoria",
+    "pollo a la brasa en la victoria",
     "delivery",
-    "comida peruana",
+    "polleria la victoria",
     "pollo broaster",
   ],
+  icons: {
+    icon: "/iconopolleria.ico",
+    shortcut: "/iconopolleria.ico",
+    apple: "/iconopolleria.ico",
+  },
   openGraph: {
     title: "Gattuso Chicken 2 | Pollo a la Brasa",
     description:
