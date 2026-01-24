@@ -80,12 +80,12 @@ export default function Hero() {
                             </motion.a>
                         </div>
 
-                        {/* Trust Badges */}
+                        {/* Trust Badges - Hidden on mobile */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6 }}
-                            className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-10 text-sm text-[var(--gray-600)]"
+                            className="hidden sm:flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-10 text-sm text-[var(--gray-600)]"
                         >
                             <div className="flex items-center gap-2">
                                 <span className="text-[var(--golden-yellow)]">★★★★★</span>
@@ -93,11 +93,11 @@ export default function Hero() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span>🚀</span>
-                                <span>Delivery en 30 min</span>
+                                <span>Delivery en 20 min</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <span>❤️</span>
-                                <span>Hecho con amor </span>
+                                <span>Hecho con amor</span>
                             </div>
                         </motion.div>
                     </motion.div>
@@ -153,12 +153,12 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Hidden on mobile */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2"
             >
                 <a href="#carta" className="flex flex-col items-center gap-2 text-[var(--gray-600)] hover:text-[var(--brasa-red)] transition-colors">
                     <span className="text-sm">Descubre nuestra carta</span>

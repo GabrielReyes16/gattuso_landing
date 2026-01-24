@@ -41,18 +41,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* Prevent iOS bounce scroll issues */
-  height: -webkit-fill-available;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, sans-serif;
-  /* Mobile viewport fixes */
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  /* Prevent horizontal scroll */
   overflow-x: hidden;
 }
 

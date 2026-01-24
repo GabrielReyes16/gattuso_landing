@@ -6,13 +6,25 @@ import { categories } from '@/lib/mock-data';
 import { supabase, SupabaseProduct } from '@/lib/supabase';
 import { Category } from '@/types';
 import ProductCard from './ProductCard';
-import { Loader2 } from 'lucide-react';
+import { Loader2, ChevronDown, ChevronUp } from 'lucide-react';
+
+const MOBILE_INITIAL_LIMIT = 3;
 
 export default function Menu() {
     const [activeCategory, setActiveCategory] = useState<Category>('todos');
     const [products, setProducts] = useState<SupabaseProduct[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showAll, setShowAll] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Check if mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     // Fetch products from Supabase
     useEffect(() => {
@@ -42,9 +54,21 @@ export default function Menu() {
         fetchProducts();
     }, []);
 
+    // Reset showAll when category changes
+    useEffect(() => {
+        setShowAll(false);
+    }, [activeCategory]);
+
     const filteredProducts = activeCategory === 'todos'
         ? products
         : products.filter((product) => product.category === activeCategory);
+
+    // Limit products on mobile
+    const displayedProducts = isMobile && !showAll
+        ? filteredProducts.slice(0, MOBILE_INITIAL_LIMIT)
+        : filteredProducts;
+
+    const hasMoreProducts = isMobile && filteredProducts.length > MOBILE_INITIAL_LIMIT;
 
     return (
         <section id="carta" className="py-20 md:py-28 bg-[var(--gray-50)]">
@@ -64,7 +88,7 @@ export default function Menu() {
                     </h2>
                     <p className="text-[var(--gray-600)] text-lg max-w-2xl mx-auto">
                         Desde nuestro clásico pollo a la brasa hasta combos familiares.
-                        Todo preparado con el sabor que nos caracteriza. Precios actualizados y accesibles
+                        Todo preparado con el sabor que nos caracteriza.
                     </p>
                 </motion.div>
 
@@ -120,14 +144,42 @@ export default function Menu() {
 
                 {/* Products Grid */}
                 {!loading && !error && (
-                    <motion.div
-                        layout
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                    >
-                        {filteredProducts.map((product, index) => (
-                            <ProductCard key={product.id} product={product} index={index} />
-                        ))}
-                    </motion.div>
+                    <>
+                        <motion.div
+                            layout
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                        >
+                            {displayedProducts.map((product, index) => (
+                                <ProductCard key={product.id} product={product} index={index} />
+                            ))}
+                        </motion.div>
+
+                        {/* Ver más / Ver menos button - Mobile only */}
+                        {hasMoreProducts && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="flex justify-center mt-8"
+                            >
+                                <button
+                                    onClick={() => setShowAll(!showAll)}
+                                    className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-[var(--brasa-red)] text-[var(--brasa-red)] rounded-full font-semibold hover:bg-[var(--brasa-red)] hover:text-white transition-all"
+                                >
+                                    {showAll ? (
+                                        <>
+                                            <ChevronUp size={20} />
+                                            Ver menos
+                                        </>
+                                    ) : (
+                                        <>
+                                            <ChevronDown size={20} />
+                                            Ver más ({filteredProducts.length - MOBILE_INITIAL_LIMIT} más)
+                                        </>
+                                    )}
+                                </button>
+                            </motion.div>
+                        )}
+                    </>
                 )}
 
                 {/* Empty State */}

@@ -177,16 +177,16 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 {businessHours.map((schedule) => {
                                     const isClosed = !schedule.open || !schedule.close;
                                     return (
                                         <div
                                             key={schedule.day}
-                                            className={`flex justify-between text-sm py-1.5 px-3 rounded-lg ${isClosed ? 'bg-red-50' : 'bg-white/50'}`}
+                                            className={`flex justify-between items-center text-sm py-2.5 px-4 rounded-lg ${isClosed ? 'bg-red-50' : 'bg-white/50'}`}
                                         >
-                                            <span className="text-[var(--gray-600)]">{schedule.day}</span>
-                                            <span className={`font-medium ${isClosed ? 'text-red-500' : 'text-[var(--gray-800)]'}`}>
+                                            <span className="text-[var(--gray-600)] font-medium">{schedule.day}</span>
+                                            <span className={`font-semibold text-right ${isClosed ? 'text-red-500' : 'text-[var(--gray-800)]'}`}>
                                                 {isClosed ? 'Cerrado' : `${formatTimeDisplay(schedule.open)} - ${formatTimeDisplay(schedule.close)}`}
                                             </span>
                                         </div>
