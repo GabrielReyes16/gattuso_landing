@@ -4,7 +4,7 @@
   /* Paleta Pollería - Fondo blanco, colores cálidos */
   --background: #ffffff;
   --foreground: #1a1a1a;
-  
+
   /* Colores principales */
   --brasa-red: #e11d48;
   --brasa-red-dark: #be123c;
@@ -15,7 +15,7 @@
   --elegant-black: #0f0f0f;
   --cream: #fef3c7;
   --cream-light: #fffbeb;
-  
+
   /* Grises suaves */
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
@@ -41,12 +41,19 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent iOS bounce scroll issues */
+  height: -webkit-fill-available;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, sans-serif;
+  /* Mobile viewport fixes */
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* Scrollbar personalizada */
@@ -69,13 +76,27 @@ body {
 
 /* Animaciones globales */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-  50% { box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0.2); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0.2);
+  }
 }
 
 .animate-float {
