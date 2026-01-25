@@ -20,7 +20,11 @@ export default function Footer() {
                         className="lg:col-span-2"
                     >
                         <div className="flex items-center gap-3 mb-4">
-                            <span className="text-4xl">🍗</span>
+                            <img
+                                src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/Logo_sin_fondo.png"
+                                alt="Logo Gattuso Chicken"
+                                className="h-20 w-auto"
+                            />
                             <div>
                                 <h3 className="text-xl font-bold text-[var(--golden-yellow)]">
                                     {businessInfo.name}
@@ -98,7 +102,7 @@ export default function Footer() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
                         <p>© {currentYear} {businessInfo.name}. Todos los derechos reservados.</p>
                         <p className="flex items-center gap-2">
-                            Hecho con <span className="text-[var(--brasa-red)]">❤️</span> en Lima, Perú
+                            Desarrollado por <a href="https://portfolio-sigma-hazel-12.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[var(--brasa-red)] hover:text-white transition-colors">Math</a>
                         </p>
                     </div>
                 </div>

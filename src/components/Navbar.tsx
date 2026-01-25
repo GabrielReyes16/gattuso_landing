@@ -21,10 +21,14 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 inset-x-0 z-[100] bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16 md:h-20">
+                <div className="flex items-center justify-between h-20 md:h-24">
                     {/* Logo */}
-                    <a href="#inicio" className="flex items-center gap-2 group">
-                        <span className="text-3xl">🍗</span>
+                    <a href="#inicio" className="flex items-center gap-3 group">
+                        <img
+                            src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/Logo_sin_fondo.png"
+                            alt="Logo Gattuso Chicken"
+                            className="h-16 md:h-20 w-auto"
+                        />
                         <div className="flex flex-col">
                             <span className="text-lg md:text-xl font-bold text-[var(--brasa-red)] group-hover:text-[var(--brasa-red-dark)] transition-colors">
                                 {businessInfo.name}

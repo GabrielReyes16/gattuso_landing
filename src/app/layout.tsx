@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -8,8 +8,13 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Gattuso Chicken 2 | Pollo a la Brasa en Lima, Perú",
+  title: "Gattuso Chicken 2 | Pollo a la Brasa",
   description:
     "El mejor pollo a la brasa de Lima. Doradito por fuera, jugoso por dentro. Delivery en 20 minutos. ¡Pide ya por WhatsApp!",
   keywords: [
@@ -25,10 +30,6 @@ export const metadata: Metadata = {
     icon: "/iconopolleria.ico",
     shortcut: "/iconopolleria.ico",
     apple: "/iconopolleria.ico",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
   },
   openGraph: {
     title: "Gattuso Chicken 2 | Pollo a la Brasa",

@@ -35,14 +35,38 @@ export default function Menu() {
             try {
                 const { data, error } = await supabase
                     .from('products')
-                    .select('*')
-                    .order('is_popular', { ascending: false });
+                    .select('*');
 
                 if (error) {
                     throw error;
                 }
 
-                setProducts(data || []);
+                // Ordenamiento personalizado:
+                // 1. Productos populares (sin bebidas) - precio menor a mayor
+                // 2. Productos no populares (sin bebidas) - precio menor a mayor
+                // 3. Bebidas al final - precio menor a mayor
+                const sortedProducts = (data || []).sort((a, b) => {
+                    const aIsBebida = a.category === 'bebidas';
+                    const bIsBebida = b.category === 'bebidas';
+
+                    // Las bebidas siempre van al final
+                    if (aIsBebida && !bIsBebida) return 1;
+                    if (!aIsBebida && bIsBebida) return -1;
+
+                    // Si ambos son bebidas, ordenar por precio ascendente
+                    if (aIsBebida && bIsBebida) {
+                        return a.price - b.price;
+                    }
+
+                    // Para no-bebidas: primero los populares
+                    if (a.is_popular && !b.is_popular) return -1;
+                    if (!a.is_popular && b.is_popular) return 1;
+
+                    // Dentro del mismo grupo (populares o no populares), ordenar por precio ascendente
+                    return a.price - b.price;
+                });
+
+                setProducts(sortedProducts);
             } catch (err) {
                 console.error('Error fetching products:', err);
                 setError('No pudimos cargar los productos. Intenta de nuevo.');
