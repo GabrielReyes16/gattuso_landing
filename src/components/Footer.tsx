@@ -23,7 +23,7 @@ export default function Footer() {
                             <img
                                 src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/Logo_sin_fondo.png"
                                 alt="Logo Gattuso Chicken"
-                                className="h-20 w-auto"
+                                className="h-32 w-auto"
                             />
                             <div>
                                 <h3 className="text-xl font-bold text-[var(--golden-yellow)]">

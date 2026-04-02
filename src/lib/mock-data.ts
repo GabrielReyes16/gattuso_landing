@@ -131,11 +131,33 @@ export const deliveryZones: DeliveryZone[] = [
 
 ];
 
+export const sedes = [
+    {
+        id: 'sede1',
+        name: 'Sede 1',
+        phone: '+51918096489',
+        address: 'Jr. Italia 1024, La Victoria',
+        lat: -12.070077669576502,
+        lng: -77.02040640849546,
+        mapsUrl: 'https://maps.app.goo.gl/QZJSzopNnt84tG7TA',
+        emoji: '📍',
+    },
+    {
+        id: 'sede2',
+        name: 'Sede 2',
+        phone: '+51901925250',
+        address: 'Pje. Ignacio Cossio 231, La Victoria',
+        lat: -12.078827686035714,
+        lng: -77.01358813732985,
+        mapsUrl: 'https://maps.app.goo.gl/1pV7Rmkc4ncivGvn9',
+        emoji: '📍',
+    },
+];
+
 export const businessInfo = {
-    name: 'Gattuso Chicken 2',
+    name: 'Gattuso Chicken',
     slogan: 'Haaaaarta crema',
     phone: '+51901925250',
     address: 'Pasaje Ignacio Cossio 231, La Victoria, Lima',
     whatsappMessage: '¡Hola! Quiero hacer un pedido.',
-
 };
