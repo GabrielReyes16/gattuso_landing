@@ -140,7 +140,7 @@ export const sedes = [
         lat: -12.070077669576502,
         lng: -77.02040640849546,
         mapsUrl: 'https://maps.app.goo.gl/QZJSzopNnt84tG7TA',
-        emoji: '📍',
+        emoji: '',
     },
     {
         id: 'sede2',
@@ -150,7 +150,7 @@ export const sedes = [
         lat: -12.078827686035714,
         lng: -77.01358813732985,
         mapsUrl: 'https://maps.app.goo.gl/1pV7Rmkc4ncivGvn9',
-        emoji: '📍',
+        emoji: '',
     },
 ];
 
