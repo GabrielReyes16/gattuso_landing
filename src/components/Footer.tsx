@@ -1,11 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
-import { businessInfo } from '@/lib/mock-data';
+import { MapPin, Phone } from 'lucide-react';
+import { businessInfo, sedes } from '@/lib/mock-data';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+
+    const formatPhone = (phone: string) => {
+        // +51918096489 → 918 096 489
+        const digits = phone.replace('+51', '');
+        return digits.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3');
+    };
 
     return (
         <footer className="bg-[var(--elegant-black)] text-white">
@@ -17,13 +23,13 @@ export default function Footer() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="lg:col-span-2"
+                        className="lg:col-span-1"
                     >
                         <div className="flex items-center gap-3 mb-4">
                             <img
                                 src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/Logo_sin_fondo.png"
                                 alt="Logo Gattuso Chicken"
-                                className="h-32 w-auto"
+                                className="h-24 w-auto"
                             />
                             <div>
                                 <h3 className="text-xl font-bold text-[var(--golden-yellow)]">
@@ -32,11 +38,9 @@ export default function Footer() {
                                 <p className="text-sm text-gray-400">{businessInfo.slogan}</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 max-w-md mb-6">
-                            Hecho con la misma pasión del primer día. El sabor auténtico y la calidad que nos identifica, servidos con el cariño de siempre
+                        <p className="text-gray-400 text-sm max-w-md">
+                            Hecho con la misma pasión del primer día. El sabor auténtico y la calidad que nos identifica, servidos con el cariño de siempre.
                         </p>
-
-
                     </motion.div>
 
                     {/* Quick Links */}
@@ -69,26 +73,65 @@ export default function Footer() {
                         </ul>
                     </motion.div>
 
-                    {/* Contact Info */}
+                    {/* Sede 1 */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        <h4 className="font-bold text-[var(--golden-yellow)] mb-4">Contacto</h4>
+                        <h4 className="font-bold text-[var(--golden-yellow)] mb-4">{sedes[0].emoji} {sedes[0].name}</h4>
                         <ul className="space-y-3">
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <MapPin className="w-5 h-5 text-[var(--brasa-red)] flex-shrink-0 mt-0.5" />
-                                <span className="text-sm">{businessInfo.address}</span>
+                            <li>
+                                <a
+                                    href={sedes[0].mapsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors group"
+                                >
+                                    <MapPin className="w-5 h-5 text-[var(--brasa-red)] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                                    <span className="text-sm">{sedes[0].address}</span>
+                                </a>
                             </li>
                             <li>
                                 <a
-                                    href={`tel:${businessInfo.phone}`}
-                                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                                    href={`tel:${sedes[0].phone}`}
+                                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
                                 >
-                                    <Phone className="w-5 h-5 text-[var(--brasa-red)]" />
-                                    <span className="text-sm">{businessInfo.phone}</span>
+                                    <Phone className="w-5 h-5 text-[var(--brasa-red)] flex-shrink-0 group-hover:scale-110 transition-transform" />
+                                    <span className="text-sm">{formatPhone(sedes[0].phone)}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    {/* Sede 2 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <h4 className="font-bold text-[var(--golden-yellow)] mb-4">{sedes[1].emoji} {sedes[1].name}</h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <a
+                                    href={sedes[1].mapsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors group"
+                                >
+                                    <MapPin className="w-5 h-5 text-[var(--brasa-red)] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                                    <span className="text-sm">{sedes[1].address}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={`tel:${sedes[1].phone}`}
+                                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                                >
+                                    <Phone className="w-5 h-5 text-[var(--brasa-red)] flex-shrink-0 group-hover:scale-110 transition-transform" />
+                                    <span className="text-sm">{formatPhone(sedes[1].phone)}</span>
                                 </a>
                             </li>
                         </ul>
