@@ -124,7 +124,7 @@ export default function Hero() {
                                     {/* Hero Image */}
                                     <div className="absolute inset-4 rounded-full bg-gradient-to-br from-[var(--cream)] to-[var(--golden-yellow-light)] flex items-center justify-center overflow-hidden shadow-2xl">
                                         <img
-                                            src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/mostrito.webp"
+                                            src="https://vqjxwfvwjekponwzmefh.supabase.co/storage/v1/object/public/gattuso/monstro.webp"
                                             alt="Pollo a la brasa Gattuso"
                                             className="w-full h-full object-cover"
                                         />
