@@ -122,7 +122,7 @@ export default function Menu() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="flex flex-wrap justify-center gap-3 mb-12"
+                    className="flex flex-nowrap justify-center gap-2 sm:gap-3 mb-12"
                 >
                     {categories.map((category) => (
                         <motion.button
@@ -130,7 +130,7 @@ export default function Menu() {
                             onClick={() => setActiveCategory(category.id)}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`px-5 py-2.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 ${activeCategory === category.id
+                            className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 whitespace-nowrap ${activeCategory === category.id
                                 ? 'bg-[var(--brasa-red)] text-white shadow-lg shadow-[var(--brasa-red)]/30'
                                 : 'bg-white text-[var(--gray-600)] hover:bg-[var(--cream)] hover:text-[var(--gray-800)] border border-[var(--gray-200)]'
                                 }`}

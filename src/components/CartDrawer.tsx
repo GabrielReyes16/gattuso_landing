@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
@@ -21,6 +22,16 @@ export default function CartDrawer() {
     } = useCart();
 
     const { isOpen: isSedeSelectorOpen, message, openSelector, closeSelector } = useWhatsAppSede();
+
+    // Lock body scroll when drawer is open
+    useEffect(() => {
+        if (isCartOpen) {
+            document.body.classList.add('cart-open');
+        } else {
+            document.body.classList.remove('cart-open');
+        }
+        return () => document.body.classList.remove('cart-open');
+    }, [isCartOpen]);
 
     const handleSendOrder = () => {
         const msg = generateWhatsAppMessage();

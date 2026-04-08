@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -48,6 +49,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+body.cart-open {
+  overflow: hidden;
 }
 
 /* Scrollbar personalizada */
