@@ -17,8 +17,16 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { isOpen: sedeOpen, message, openSelector, closeSelector } = useWhatsAppSede();
 
-    const handleLinkClick = () => {
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
         setIsOpen(false);
+        // Wait for menu close animation, then scroll to target
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 150);
     };
 
     const handlePedirClick = () => {
@@ -93,7 +101,7 @@ export default function Navbar() {
                                     <a
                                         key={link.href}
                                         href={link.href}
-                                        onClick={handleLinkClick}
+                                        onClick={(e) => handleLinkClick(e, link.href)}
                                         className="block py-3 px-4 text-[var(--gray-800)] hover:text-[var(--brasa-red)] hover:bg-[var(--cream-light)] rounded-lg font-medium transition-all"
                                     >
                                         {link.label}
