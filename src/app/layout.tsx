@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -50,6 +51,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${outfit.variable} antialiased`}>
         <CartProvider>{children}</CartProvider>
+        <Analytics />
       </body>
     </html>
   );
